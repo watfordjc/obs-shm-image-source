@@ -1,4 +1,15 @@
-# OBS Plugin Template
+# OBS Shared Memory Image Source Plugin
+
+This repository has been generated from the OBS Plugin Template repository.
+
+It is still mostly in its original template state.
+
+---
+
+<details>
+<summary>
+Collapsible original README text (will be deleted in a later commit)
+</summary>
 
 ## Introduction
 
@@ -59,3 +70,5 @@ In addition to enabling `macosSignAndNotarize`, you'll need to setup a few more 
     - `secrets.macOS.notarization.username`: Your Apple Developer Account's username
     - `secrets.macOS.notarization.password`: Your Apple Developer Account's password
     - `secrets.macOS.notarization.providerShortName`: Identifier (`Provider Short Name`, as Apple calls it) of the Developer Team to which the signing certificates belong. 
+
+</details>
