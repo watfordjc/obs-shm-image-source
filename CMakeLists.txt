@@ -56,7 +56,8 @@ configure_file(
 )
 
 set(PLUGIN_SOURCES
-	src/plugin-main.c)
+	src/plugin-main.c
+    src/obs-shm-image-source.c)
 
 set(PLUGIN_HEADERS
 	src/plugin-macros.generated.h)

@@ -7,8 +7,11 @@
 OBS_DECLARE_MODULE()
 OBS_MODULE_USE_DEFAULT_LOCALE(PLUGIN_NAME, "en-US")
 
+extern struct obs_source_info shm_image_source_info; /* Defined in obs-shm-image-source.c */
+
 bool obs_module_load(void)
 {
+    obs_register_source(&shm_image_source_info);
     blog(LOG_INFO, "plugin loaded successfully (version %s)", PLUGIN_VERSION);
     return true;
 }
