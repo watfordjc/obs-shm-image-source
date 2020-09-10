@@ -16,7 +16,8 @@ struct obs_source_info shm_image_source_info = {
 		.update = shm_image_source_update,
 		.video_render = shm_image_source_render,
 		.get_width = shm_image_source_get_width,
-		.get_height = shm_image_source_get_height
+		.get_height = shm_image_source_get_height,
+		.icon_type = OBS_ICON_TYPE_IMAGE
 };
 
 static const char* shm_image_source_get_name(void* unused)
