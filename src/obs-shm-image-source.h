@@ -2,6 +2,7 @@
 
 #include <obs-module.h>
 
+static obs_properties_t* shm_image_source_get_properites(void* data);
 static const char* shm_image_source_get_name(void* unused);
 static void shm_image_source_load(struct shm_image_source* context);
 static void shm_image_source_unload(struct shm_image_source* context);

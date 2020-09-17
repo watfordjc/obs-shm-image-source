@@ -1,8 +1,28 @@
 # OBS Shared Memory Image Source Plugin
 
-This repository has been generated from the OBS Plugin Template repository.
+This repository was generated from the OBS Plugin Template repository.
 
-It is still mostly in its original template state.
+## Functionality
+
+This plugin creates a **Shared Memory Image** source type in OBS Studio, which uses the Windows-only ```gs_texture_open_shared()``` OBS graphics function to display an image (```ID3D11Texture2D```) already stored in the GPU.
+
+## Configuration
+
+This plugin currently has no Inter-Process Communication (IPC) options for configuration, so the ```HANDLE``` and ```IDXGIKeyedMutex``` need manual configuration in the source's properties.
+
+The *Shared Memory Handle* setting is a string, and the C ```strtoll()``` function is used to convert it to a ```uint32_t```. The call to ```strtoll()``` does not assume a base type, so a base 10 integer can be entered as can octal (prepend with ```0```) or hexadecimal (prepend with ```0x```).
+
+## Notes
+
+The ```video_render``` callback (```shm_image_source_render()```) will only wait 16 milliseconds for a mutex lock. If it can't obtain a mutex lock then the plugin doesn't draw anything for that frame. ***This can potentially cause flickering.***
+
+This plugin was created as part of [**Issue #1 (Use DXGI) in watfordjc/csharp-message-to-image-library**](https://github.com/watfordjc/csharp-message-to-image-library/issues/1). Message to Image Library was itself created as part of [**Issue #36 (Add Tweet Sync Support) in watfordjc/csharp-stream-controller**](https://github.com/watfordjc/csharp-stream-controller/issues/36).
+
+This plugin is essentially a wrapper around OBS function ```gs_texture_open_shared()``` and should work with any ```ID3D11Texture2D``` created with ```MiscFlags = D3D11_RESOURCE_MISC_SHARED_KEYEDMUTEX``` and ```BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE```.
+
+## Additional Disclaimer
+
+**This plugin is pre-alpha, still in development, and has undergone very little testing.**
 
 ---
 
